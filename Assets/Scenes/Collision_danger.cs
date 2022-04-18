@@ -25,7 +25,7 @@ public class Collision_danger : MonoBehaviour
         {
             return;
         }
-        transform.parent.GetComponent<Boid>().direction = new Vector2(-transform.parent.GetComponent<Boid>().direction.x, -transform.parent.GetComponent<Boid>().direction.y);
+        transform.parent.GetComponent<Boid>().velocity = new Vector2(-transform.parent.GetComponent<Boid>().velocity.x, -transform.parent.GetComponent<Boid>().velocity.y);
         canChangeDirection = false;
 
     }
@@ -45,25 +45,25 @@ public class Collision_danger : MonoBehaviour
         }
         if (nameWall == "Left" || nameWall == "Right")
         {
-            if (transform.parent.GetComponent<Boid>().direction.y < 0)
+            if (transform.parent.GetComponent<Boid>().velocity.y < 0)
             {
-                transform.parent.GetComponent<Boid>().direction = new Vector2(-transform.parent.GetComponent<Boid>().direction.x * 0.2f, -1 * Random.Range(-1f, 1f));
+                transform.parent.GetComponent<Boid>().velocity = new Vector2(-transform.parent.GetComponent<Boid>().velocity.x * 0.2f, -1 * Random.Range(-1f, 1f));
             }
             else
             {
-                transform.parent.GetComponent<Boid>().direction = new Vector2(-transform.parent.GetComponent<Boid>().direction.x * 0.2f, Random.Range(-1f, 1f));
+                transform.parent.GetComponent<Boid>().velocity = new Vector2(-transform.parent.GetComponent<Boid>().velocity.x * 0.2f, Random.Range(-1f, 1f));
             }
 
         }
         if (nameWall == "Top" || nameWall == "Bottom")
         {
-            if (transform.parent.GetComponent<Boid>().direction.x < 0)
+            if (transform.parent.GetComponent<Boid>().velocity.x < 0)
             {
-                transform.parent.GetComponent<Boid>().direction = new Vector2(-1 * Random.Range(-1f, 1f), -transform.parent.GetComponent<Boid>().direction.y * 0.2f);
+                transform.parent.GetComponent<Boid>().velocity = new Vector2(-1 * Random.Range(-1f, 1f), -transform.parent.GetComponent<Boid>().velocity.y * 0.2f);
             }
             else
             {
-                transform.parent.GetComponent<Boid>().direction = new Vector2(Random.Range(-1f, 1f), -transform.parent.GetComponent<Boid>().direction.y * 0.2f);
+                transform.parent.GetComponent<Boid>().velocity = new Vector2(Random.Range(-1f, 1f), -transform.parent.GetComponent<Boid>().velocity.y * 0.2f);
             }
 
         }
